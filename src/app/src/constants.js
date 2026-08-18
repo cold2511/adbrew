@@ -1,0 +1,1 @@
+export const TODO_DESCRIPTION_MAX_LENGTH = 500;
