@@ -15,6 +15,11 @@ services:
   app:
     build: .
     container_name: app
+    # CRA exits when stdin is not a TTY; bind 0.0.0.0 so the port is reachable from the host.
+    stdin_open: true
+    environment:
+      - HOST=0.0.0.0
+      - CHOKIDAR_USEPOLLING=true
     command: bash -c "cd /src/app && yarn install && yarn start"
     ports:
       - "3000:3000"
